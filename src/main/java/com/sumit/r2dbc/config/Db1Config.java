@@ -28,7 +28,7 @@ public class Db1Config extends AbstractR2dbcConfiguration {
 
 
     @Bean(name = "db1tmplt")
-    public R2dbcEntityTemplate r2dbcEntityTemplate( DatabaseClient databaseClient) {
+    public R2dbcEntityTemplate r2dbcEntityTemplate(@Qualifier("db1Client") DatabaseClient databaseClient) {
         return new R2dbcEntityTemplate(databaseClient, new DefaultReactiveDataAccessStrategy(PostgresDialect.INSTANCE));
     }
 
